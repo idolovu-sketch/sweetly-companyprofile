@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweetly Co., Ltd. - Premium European Food Brand Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --accent: #104C99;
+            --accent-light: #4A8AD4;
+            --deep-navy: #104C99;
+            --dark-slate: #1A5BB0;
+            --warm-white: #FFFDF8;
+            --cream: #F8F3EC;
+            --text-dark: #2C2C2C;
+            --text-muted: #7A7570;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--warm-white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            body { background: white; }
+            .hero { min-height: auto; padding: 60px 0; }
+            .no-print { display: none !important; }
+            section { break-inside: avoid; }
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(165deg, #FFFDF8 0%, #F8F3EC 30%, #F0E8DA 60%, #EDE4D3 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(16, 76, 153, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 60%, rgba(16, 76, 153, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(248, 243, 236, 0.8), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid rgba(16, 76, 153, 0.25);
+            border-radius: 100px;
+            color: var(--accent);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            background: rgba(16, 76, 153, 0.05);
+        }
+
+        .hero-logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .hero-logo span {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--accent);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 32px;
+            opacity: 0.75;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 0 auto 48px;
+        }
+
+        .hero-est {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .hero-logo-img {
+            margin-top: 40px;
+        }
+
+        .hero-logo-img img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 20px rgba(16, 76, 153, 0.15));
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-muted);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ── Section Common ── */
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ── About Section ── */
+        .about {
+            background: var(--warm-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .about-text p strong {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .stat-card {
+            padding: 32px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(16, 76, 153, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* ── What We Do Section ── */
+        .services {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 40px 32px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 76, 153, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, rgba(16, 76, 153, 0.12), rgba(16, 76, 153, 0.04));
+        }
+
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ── Brand Portfolio ── */
+        .portfolio {
+            background: linear-gradient(165deg, #F0E8DA 0%, #EDE4D3 50%, #E8DECA 100%);
+            color: var(--text-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 100% 50% at 50% 0%, rgba(16, 76, 153, 0.03), transparent);
+            pointer-events: none;
+        }
+
+        .portfolio .section-label { color: var(--accent); }
+        .portfolio .section-title { color: var(--text-dark); }
+        .portfolio .section-subtitle { color: var(--text-muted); }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .brand-card {
+            padding: 32px;
+            background: #ffffff;
+            border: 1px solid rgba(16, 76, 153, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .brand-card:hover {
+            border-color: rgba(16, 76, 153, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .brand-logo-wrap {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 24px;
+            overflow: hidden;
+        }
+
+        .brand-logo-wrap img {
+            max-height: 108px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .brand-origin {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .brand-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ── Retail Partners ── */
+        .partners {
+            background: var(--warm-white);
+        }
+
+        .partners-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .partner-group h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .partner-group > p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .partner-list {
+            list-style: none;
+        }
+
+        .partner-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .partner-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            flex-shrink: 0;
+        }
+
+        .partner-list li span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* ── Commitment Section ── */
+        .commitment {
+            text-align: center;
+            position: relative;
+        }
+
+        .commitment-quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-style: italic;
+            color: var(--text-dark);
+            max-width: 700px;
+            margin: 40px auto 0;
+            line-height: 1.6;
+        }
+
+        .commitment-quote::before {
+            content: '\201C';
+            display: block;
+            font-size: 4rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .commitment-author {
+            margin-top: 32px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* ── Contact Section ── */
+        .contact {
+            background: linear-gradient(165deg, #F0E8DA 0%, #EDE4D3 50%, #E8DECA 100%);
+            color: var(--text-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 76, 153, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact .section-label { color: var(--accent); }
+        .contact .section-title { color: var(--text-dark); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(16, 76, 153, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .contact-item h4 {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .contact-item p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover { color: var(--accent-light); }
+
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid rgba(16, 76, 153, 0.1);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .contact-person {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-person:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .contact-person .name {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-person .role {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .contact-person .details {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .contact-person .details a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-person .details a:hover { color: var(--accent); }
+
+        /* ── Footer ── */
+        .footer {
+            background: #E5DCCE;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            opacity: 0.6;
+        }
+
+        /* ── Photo Sections ── */
+        .photo-banner {
+            width: 100%;
+            height: 340px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(248, 243, 236, 0.15), transparent 20%, transparent 80%, rgba(248, 243, 236, 0.15));
+            pointer-events: none;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
+            pointer-events: none;
+        }
+
+        .photo-grid-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .photo-grid-strip .photo-item {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .photo-grid-strip .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-grid-strip .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .commitment {
+            background: linear-gradient(135deg, rgba(15, 30, 50, 0.7), rgba(16, 76, 153, 0.6)),
+                        url('photos/villa-product.jpg') center/cover no-repeat;
+            color: #ffffff;
+        }
+
+        .commitment .section-label { color: rgba(255, 255, 255, 0.7); }
+        .commitment .section-title { color: #ffffff; }
+
+        .commitment-quote {
+            color: #ffffff !important;
+        }
+
+        .commitment-quote::before {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .commitment-author {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        @media (max-width: 600px) {
+            .photo-banner { height: 200px; }
+            .about-photo img { height: 200px; }
+            .photo-grid-strip { grid-template-columns: 1fr; }
+            .photo-grid-strip .photo-item { height: 180px; }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-grid,
+            .partners-layout { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .brand-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 60px 0; }
+            .container { padding: 0 24px; }
+            .services-grid,
+            .brand-grid,
+            .about-stats { grid-template-columns: 1fr; }
+            .hero-content { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Company Profile 2025</div>
+        <h1 class="hero-logo"><span>Sweetly Co., Ltd.</span></h1>
+        <p class="hero-tagline">Premium European Food Brand Developer</p>
+        <div class="hero-divider"></div>
+        <p class="hero-desc">
+            We curate and bring the finest artisanal food brands from Europe to the Korean market &mdash;
+            connecting centuries of tradition with modern consumers.
+        </p>
+        <p class="hero-est">Established 2013 &middot; Seoul, Korea</p>
+        <div class="hero-logo-img">
+            <img src="sweetlylogo.png" alt="Sweetly - Quality Food Developer">
+        </div>
+    </div>
+    <div class="scroll-indicator no-print">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ════════════ ABOUT ════════════ -->
+<section class="about" id="about">
+    <div class="container">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Bringing Europe's Hidden<br>Culinary Gems to Korea</h2>
+        <p class="section-subtitle">
+            Sweetly discovers exceptional, time-honored food brands across Europe and introduces
+            them to discerning Korean consumers through premium retail and online channels.
+        </p>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    Founded in December 2013, <strong>Sweetly Co., Ltd.</strong> operates as an exclusive
+                    importer and distributor of premium European food brands in the Republic of Korea.
+                </p>
+                <p>
+                    We define ourselves as a <strong>Premium Food Brand Developer</strong> &mdash; not merely
+                    importing products, but building each brand's identity, awareness, and sales presence
+                    in the Korean market through tailored marketing strategies.
+                </p>
+                <p>
+                    From Tuscan olive oil and Neapolitan tomatoes to artisan pasta and aged balsamic vinegar,
+                    every product we represent carries a story of craftsmanship and heritage.
+                    <strong>Once collaboration begins, Sweetly is committed to maintaining the partnership
+                    for more than a decade.</strong>
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Exclusive Brands</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Retail Locations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Online Channels</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-photo">
+            <img src="photos/itattoli-table.jpg" alt="Premium European artisan food products">
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ SERVICES ════════════ -->
+<section class="services">
+    <div class="container">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">End-to-End Brand Development</h2>
+        <p class="section-subtitle">
+            We handle every aspect of bringing your brand to the Korean market &mdash;
+            from import logistics to consumer engagement.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                </div>
+                <h3>Product Import</h3>
+                <p>Exclusive importing with full regulatory compliance, customs handling, and logistics management for seamless market entry.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                    </svg>
+                </div>
+                <h3>Retail Distribution</h3>
+                <p>Strategic placement across Korea's top department stores, online platforms, and home shopping channels with direct retail relationships.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 01-3.46 0"/>
+                    </svg>
+                </div>
+                <h3>Marketing & PR</h3>
+                <p>Building brand awareness through on-site promotions, influencer collaborations, social media engagement, and home shopping TV appearances.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+                        <line x1="7" y1="7" x2="7.01" y2="7"/>
+                    </svg>
+                </div>
+                <h3>Brand Development</h3>
+                <p>Crafting brand identity tailored to the Korean market &mdash; from packaging localization to premium positioning strategy.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                    </svg>
+                </div>
+                <h3>Driving Sales</h3>
+                <p>Activating sales through targeted promotional events, seasonal campaigns, and cross-channel marketing to maximize revenue.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                </div>
+                <h3>Retailer Engagement</h3>
+                <p>Building and nurturing strong partnerships with premium retailers including department stores, e-commerce, and specialty shops.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ PHOTO STRIP ════════════ -->
+<div class="photo-banner">
+    <img src="photos/villa-balsamic.jpg" alt="Premium balsamic vinegar from Modena">
+</div>
+
+<!-- ════════════ PORTFOLIO ════════════ -->
+<section class="portfolio" id="brands">
+    <div class="container">
+        <p class="section-label">Brand Portfolio</p>
+        <h2 class="section-title">Exclusive Partnerships with<br>Europe's Finest Artisans</h2>
+        <p class="section-subtitle">
+            Each brand is carefully selected for its heritage, quality, and alignment with our
+            commitment to authentic European gastronomy.
+        </p>
+
+        <div class="brand-grid">
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/martelli.png" alt="Martelli"></div>
+                <div class="brand-origin">Italy &middot; Tuscany</div>
+                <div class="brand-name">Martelli Pasta</div>
+                <div class="brand-desc">Legendary artisan pasta from Lari, Tuscany. Family-crafted in small batches, bronze-die extruded, slow-dried for 50+ hours.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/faella.png" alt="Faella"></div>
+                <div class="brand-origin">Italy &middot; Gragnano</div>
+                <div class="brand-name">Faella Gragnano IGP</div>
+                <div class="brand-desc">Pasta from the historic birthplace of Italian pasta. IGP certified, ultra-rough surface, 60+ hour slow drying process.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/caponi.png" alt="Caponi"></div>
+                <div class="brand-origin">Italy &middot; Tuscany</div>
+                <div class="brand-name">Caponi Egg Pasta</div>
+                <div class="brand-desc">Handcrafted egg pasta since 1953. Cold-processed to preserve the delicate character of free-range eggs and premium semolina.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/casa-marrazzo.png" alt="Casa Marrazzo"></div>
+                <div class="brand-origin">Italy &middot; Naples</div>
+                <div class="brand-name">Casa Marrazzo</div>
+                <div class="brand-desc">San Marzano DOP tomatoes from Vesuvius volcanic soil. Hand-peeled since 1934, Neapolitan tradition at its finest.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/villa-manodori.png" alt="Villa Manodori"></div>
+                <div class="brand-origin">Italy &middot; Modena</div>
+                <div class="brand-name">Villa Manodori</div>
+                <div class="brand-desc">Balsamic vinegar crafted by Massimo Bottura, the world's #1 chef. DOP 12-year aged, Barolo, and artisanal IGP varieties.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/armatore.png" alt="Armatore"></div>
+                <div class="brand-origin">Italy &middot; Amalfi Coast</div>
+                <div class="brand-name">Armatore</div>
+                <div class="brand-desc">Anchovy fillets and Colatura di Alici from Cetara. Traditional chestnut-barrel aging, minimum 8 months maturation.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/scalia.png" alt="Scalia"></div>
+                <div class="brand-origin">Italy &middot; Sicily</div>
+                <div class="brand-name">Scalia</div>
+                <div class="brand-desc">Sicily's finest anchovies from Sciacca coast. Entirely hand-crafted, aged in pure ingredients for rich, clean umami.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/itattoli.png" alt="I Tattoli"></div>
+                <div class="brand-origin">Italy &middot; Tuscany</div>
+                <div class="brand-name">I Tattoli</div>
+                <div class="brand-desc">Chianti Classico DOP Extra Virgin Olive Oil. Hand-harvested, cold-pressed within hours, remarkably low 0.14% acidity.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/ASdoMAR logo.png" alt="ASdoMAR"></div>
+                <div class="brand-origin">Italy &middot; Sardinia</div>
+                <div class="brand-name">ASdoMAR</div>
+                <div class="brand-desc">Premium tuna and salmon fillets by Generale Conserve SPA. Firm texture, clean taste, essential for any kitchen.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/antonio-mattei.png" alt="Antonio Mattei"></div>
+                <div class="brand-origin">Italy &middot; Prato</div>
+                <div class="brand-name">Antonio Mattei</div>
+                <div class="brand-desc">The original Cantucci since 1858. 160+ years of unchanged recipes, baked daily in the historic Prato workshop.</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-logo-wrap"><img src="logos/Oliva De La Luna Logo.png" alt="Oliva De La Luna"></div>
+                <div class="brand-origin">Spain &middot; Andalusia</div>
+                <div class="brand-name">Oliva De La Luna</div>
+                <div class="brand-desc">Organic EVOO from southern Spain. Cold-extracted, naturally decanted, ultra-low acidity below 0.2%.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ PRODUCT PHOTOS ════════════ -->
+<section style="background: var(--warm-white); padding: 80px 0;">
+    <div class="container">
+        <div class="photo-grid-strip">
+            <div class="photo-item">
+                <img src="photos/product-anchovy.jpg" alt="Premium anchovy fillets">
+            </div>
+            <div class="photo-item">
+                <img src="photos/product-armatore.jpg" alt="Armatore anchovy products">
+            </div>
+            <div class="photo-item">
+                <img src="photos/itattoli-product.jpg" alt="I Tattoli olive oil">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ PARTNERS ════════════ -->
+<section class="partners" id="partners">
+    <div class="container">
+        <p class="section-label">Distribution Network</p>
+        <h2 class="section-title">Trusted by Korea's<br>Leading Retailers</h2>
+        <p class="section-subtitle">
+            Direct partnerships with the nation's most prestigious department stores,
+            e-commerce platforms, and home shopping networks.
+        </p>
+
+        <div class="partners-layout">
+            <div class="partner-group">
+                <h3>Offline Retail Partners</h3>
+                <p>Premium department stores nationwide</p>
+                <ul class="partner-list">
+                    <li>Galleria Gourmet 494 <span>&mdash; 5 branches</span></li>
+                    <li>Hyundai Department Stores <span>&mdash; 15 branches</span></li>
+                    <li>Shinsegae Department Stores <span>&mdash; 13 branches</span></li>
+                    <li>Lotte Department Stores</li>
+                    <li>AK Plaza</li>
+                    <li>Lotte Home Shopping TV</li>
+                    <li>Hyundai Home Shopping</li>
+                </ul>
+            </div>
+            <div class="partner-group">
+                <h3>Online Channels</h3>
+                <p>Major e-commerce and specialty platforms</p>
+                <ul class="partner-list">
+                    <li>SSG.com <span>&mdash; Shinsegae Group</span></li>
+                    <li>Coupang <span>&mdash; Rocket Delivery</span></li>
+                    <li>Lotte ON</li>
+                    <li>29CM <span>&mdash; Premium Lifestyle</span></li>
+                    <li>Mama's Market <span>&mdash; Specialty Food</span></li>
+                    <li>Department Store Online Malls</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ COMMITMENT ════════════ -->
+<section class="commitment">
+    <div class="container">
+        <p class="section-label">Our Promise</p>
+        <h2 class="section-title">Long-Term Partnership</h2>
+        <div class="commitment-quote">
+            Once collaboration begins, Sweetly is committed to keeping the partnership
+            for more than a decade. We don't just import products &mdash;
+            we build brands together.
+        </div>
+        <p class="commitment-author">Sweetly Co., Ltd. &mdash; Since 2013</p>
+    </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section class="contact" id="contact">
+    <div class="container">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's Build Something<br>Together</h2>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Office</h4>
+                        <p>Nammun-ro 51beon-gil, Sujeong-gu,<br>Seongnam-si, Gyeonggi-do,<br>Republic of Korea</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Web</h4>
+                        <p><a href="https://sweetly.co.kr" target="_blank">sweetly.co.kr</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Instagram</h4>
+                        <p><a href="https://www.instagram.com/mamasmarket.co.kr_" target="_blank">@mamasmarket.co.kr_</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Online Shop</h4>
+                        <p><a href="https://mamasmarket.co.kr" target="_blank">mamasmarket.co.kr</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <polyline points="2 7 12 13 22 7"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Business Registration</h4>
+                        <p>129-86-84926</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>Key Contacts</h3>
+                <div class="contact-person">
+                    <div class="name">Dong Hyun Cho</div>
+                    <div class="role">Business Development Director</div>
+                    <div class="details">
+                        <a href="mailto:donghyun@sweetly.co.kr">donghyun@sweetly.co.kr</a><br>
+                        Office: +82 (0)70-8780-0775<br>
+                        Mobile: +82 (0)10-2707-0775
+                    </div>
+                </div>
+                <div class="contact-person">
+                    <div class="name">Anna Kim</div>
+                    <div class="role">CEO & Founder</div>
+                    <div class="details">
+                        <a href="mailto:annak@sweetly.co.kr">annak@sweetly.co.kr</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Sweetly Co., Ltd. All rights reserved. &nbsp;|&nbsp; <a href="https://sweetly.co.kr" target="_blank">sweetly.co.kr</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
